@@ -67,16 +67,40 @@ void bubbleSort(vector<T> &vec) {
     }
 }
 
-int main()
-{
-    vector<int> vec1 = { 43, 5, 123, 94, 359, -23, 2, -1 };
+// 5.2 (b). Bubble Sort Escape Clause
+void BubbleSortEscape(vector<int> v){
+    bool noSwap;
 
-    printVector(vec1);
-    bubbleSort(vec1);
-    printVector(vec1);
+    for(int i = v.size()-1 ; i >= 1; i-- ){
+   
+        noSwap = true;
+        for(int j = 0 ; j <= i - 1 ; j++){
+         
+            if (v[j] > v[j+1]){
 
-    return EXIT_SUCCESS;
+                swap(v[j],v[j+1]);
+                noSwap=false;
+            }
+
+        }
+
+        if(noSwap){
+            break;
+        }
+        
+    }
 }
+//Function Bubble Sort Main
+// int main()
+// {
+//     vector<int> vec1 = { 43, 5, 123, 94, 359, -23, 2, -1 };
+
+//     printVector(vec1);
+//     bubbleSort(vec1);
+//     printVector(vec1);
+
+//     return EXIT_SUCCESS;
+// }
 
 
 //Function Selection Sort Main
