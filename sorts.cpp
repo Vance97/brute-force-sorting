@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <algorithm>
 using namespace std;
 
 /* 5.1
@@ -46,6 +47,37 @@ void selectionSort(std::vector<int> &arr) {
         }
     }
 }
+
+// 5.2 (b). Bubble Sort
+template<typename T>
+void printVector(const vector<T> &vec) {
+    for (auto &i : vec) {
+        cout << i << "; ";
+    }
+    cout << endl;
+}
+
+template<typename T>
+void bubbleSort(vector<T> &vec) {
+    for (size_t i = 0; i < vec.size() - 1; ++i) {
+        for (size_t j = 0; j < vec.size() - i - 1; ++j) {
+            if (vec.at(j) > vec.at(j + 1))
+                std::swap(vec.at(j), vec.at(j + 1));
+        }
+    }
+}
+
+int main()
+{
+    vector<int> vec1 = { 43, 5, 123, 94, 359, -23, 2, -1 };
+
+    printVector(vec1);
+    bubbleSort(vec1);
+    printVector(vec1);
+
+    return EXIT_SUCCESS;
+}
+
 
 //Function Selection Sort Main
 // int main() {
