@@ -3,7 +3,6 @@ Advanced Analysis of Algorithms Assignment- 2022
 <hr>
 Language: C++
 <hr>
-<p style="font-weight=bold;">Algorithms<p>
 
 <p>Selection Sort<p>
 <p>Bubble Sort<p>
