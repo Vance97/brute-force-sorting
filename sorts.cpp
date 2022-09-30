@@ -2,6 +2,8 @@
 #include <vector>
 #include <cstdlib>
 #include <algorithm>
+#include <random>
+#include <chrono>
 using namespace std;
 
 /* 5.1
@@ -68,36 +70,62 @@ void bubbleSort(vector<T> &vec) {
 }
 
 // 5.2 (b). Bubble Sort Escape Clause
-void BubbleSortEscape(vector<int> v){
-    bool noSwap;
+vector<int> bubbleSortEscapeClause(vector<int> numbers)
+{
 
-    for(int i = v.size()-1 ; i >= 1; i-- ){
-   
-        noSwap = true;
-        for(int j = 0 ; j <= i - 1 ; j++){
-         
-            if (v[j] > v[j+1]){
+    int temp;
 
-                swap(v[j],v[j+1]);
-                noSwap=false;
+    int i = numbers.size() - 1;
+    bool sorting = true;
+    bool swopped;
+    while (i >= 1 && sorting == true)
+    {
+        swopped = false;
+        for (int j = 0; j <= i - 1; j++)
+        {
+            if (numbers[j] > numbers[j + 1])
+            {
+                //swap
+                temp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = temp;
+                swopped = true;
             }
-
         }
-
-        if(noSwap){
-            break;
+        if (swopped == false)
+        {
+            sorting = false;
         }
-        
+        else
+        {
+            i = i - 1;
+        }
     }
+    return numbers;
 }
+
+//Function Bubble Sort Main
+int main()
+{
+    vector<int> vec1 = { 43, 5, 123, 94, 359, -23, 2, -1 };
+    vector<int> vec2;
+
+    printVector(vec1);
+    vec2 = bubbleSortEscapeClause(vec1);
+    printVector(vec2);
+
+    return EXIT_SUCCESS;
+}
+
 //Function Bubble Sort Main
 // int main()
 // {
-//     vector<int> vec1 = { 43, 5, 123, 94, 359, -23, 2, -1 };
-
-//     printVector(vec1);
-//     bubbleSort(vec1);
-//     printVector(vec1);
+//     for(int i=1000;i<=20000;i+=1000){
+//         vector<int>inputs = InputGenerator(i);
+//         selectionSort(inputs);
+//         bubbleSort(inputs);
+//         BubbleSortEscape(inputs);
+//     }
 
 //     return EXIT_SUCCESS;
 // }

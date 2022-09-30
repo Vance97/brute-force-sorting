@@ -10,8 +10,8 @@ LDFLAGS =
 # Makefile settings - Can be customized.
 APPNAME = sorts
 EXT = .cpp
-SRCDIR = src
-OBJDIR = obj
+SRCDIR = .
+OBJDIR = .
 
 ############## Do not change anything from here downwards! #############
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
